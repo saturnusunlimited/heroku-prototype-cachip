@@ -1,0 +1,40 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-18 16:55
+
+GOAL
+
+    Find out whether I should use ReactJS for Kabisa assignement, and if so,
+    build a prototype.
+
+COMMANDS
+
+    $ npm start
+
+NOTES
+
+    - I changed the link in src/App.js
+    - I added double_quotes from https://www.flaticon.com/free-icon/double-quotes_2997#term=double%20quotes&page=1&position=1
+        to replace the React logo. Need to give credits though.
+    - I converted the SVG for the double qoutes to PNG, adding public/double_quotes192.png and public/double_qoutes512.png
+    - Changed logo192.png to double_quotes192.png in public/index.html
+    - Added credits.
+
+            <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+    - Made many more changes, i.e. I found this to be suitable and build the prototype.
+
+FILES
+
+	node_modules/  # directory without README file
+	package.json   # JSON data
+	public/        # Apache public directory for webservices.
+	README         # This file.
+	README.md      # UTF-8 Unicode text, with very long lines
+	src/           # directory without README file
+	yarn.lock      # ASCII text
+

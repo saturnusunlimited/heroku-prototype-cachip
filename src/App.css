@@ -1,0 +1,87 @@
+:root {
+
+  --primary-fg-color:   #09d3ac;
+  --secondary-fg-color: #19e3bc;
+}
+
+.App {
+
+  text-align: center;
+}
+
+.App-title {
+
+    color: red;
+}
+
+.App-quotes-left {
+
+  height: 10vmin;
+  float: left;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+div.quotes{
+
+    width: 100%;
+    height: 10vmin;
+}
+
+div.App-credits {
+
+    width: 90%;
+    height: 3vmin;
+	text-align: right;
+	font-size: 1vw;
+}
+
+.App-quotes-right {
+
+  height: 10vmin;
+  float: right;
+}
+
+
+.App-header {
+
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+
+  color: var(--primary-fg-color);
+}
+
+.App-quote {
+
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+div.App-quote {
+
+    width: 90%;
+}
+
+.App-quote-text {
+
+  	color: var(--primary-fg-color);
+    font-size: calc(10px + 3vmin);
+	font-style: italic;
+}
+
+.App-quote-author {
+
+  	color: var(--primary-fg-color);
+    font-size: calc(10px + 4vmin);
+	font-style: bold;
+}
