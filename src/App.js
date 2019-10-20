@@ -3,7 +3,7 @@ import double_quotes from './assets/svg/double_quotes.svg';
 import './App.css';
 import './css/CustomBootstrap.css'
 import quotes from './assets/json/quotes.json'
-import { Button } from 'react-bootstrap';
+import { Button, ButtonToolbar, Modal } from 'react-bootstrap';
 import { useState } from 'react';
 
 
@@ -42,64 +42,70 @@ function App() {
 
         <div className="App">
 
-          <header className="App-header">
+            <div className="App-header">
+                <ButtonToolbar>
+                    <Button variant="secondary" className="m-1" onClick={newRandomQuote}>Change Quote</Button>
+                    <Button variant="secondary" className="m-1" onClick={toggleLeetSpeak}>Leet Speak</Button>
+                </ButtonToolbar>
+            </div>
 
-            <Button bsStyle="primary" onClick={newRandomQuote}>Change Quote</Button>
+            <div className="App-body">
 
-            <div className="App-quote">
+                <div className="App-quote">
 
-                <div className="quotes">
-                    <img src={double_quotes} className="App-quotes-left" alt="double quotes"/>
+                    <div className="quotes">
+                        <img src={double_quotes} className="App-quotes-left" alt="double quotes"/>
+                    </div>
+
+                    <div>
+                        <p className="App-quote-text">{quote.quoteText}</p>
+                    </div>
+
+                    <div className="quotes" >
+                        <img src={double_quotes} className="App-quotes-right" alt="double quotes"/>
+                    </div>
+
                 </div>
 
-                <div>
-                    <p className="App-quote-text">{quote.quoteText}</p>
-                </div>
+                <div className="App-quote">
 
-                <div className="quotes" >
-                    <img src={double_quotes} className="App-quotes-right" alt="double quotes"/>
+                    <p className="App-quote-author">{quote.quoteAuthor}</p>
                 </div>
             </div>
 
-            <div className="App-quote">
+            <div className="App-footer">
 
-                <p className="App-quote-author">{quote.quoteAuthor}</p>
+                <div className="App-footer-inner">
+                    <p>
+                        Icons made by <a
+                        className="App-link"
+                        href="https://www.flaticon.com/authors/freepik"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Freepik">Freepik</a> from <a
+                        className="App-link"
+                        href="https://www.flaticon.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Flaticon">www.flaticon.com
+                        </a>
+                    </p>
+
+                    <p>
+                        This app was made with <a
+                          className="App-link"
+                          href="https://create-react-app.dev/docs/getting-started#!"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        > create-react-app </a>
+                    </p>
+
+                    <p>
+                       Comments or problems? Mail <a className="App-link" href="mailto:saturnusunlimited@gmail.com"> saturnusunlimited@gmail.com </a>
+                    </p>
+
+                </div>
             </div>
-
-            <div className="App-credits">
-
-                <p>
-                    Icons made by <a
-                    className="App-link"
-                    href="https://www.flaticon.com/authors/freepik"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Freepik">Freepik</a> from <a
-                    className="App-link"
-                    href="https://www.flaticon.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Flaticon">www.flaticon.com
-                    </a>
-                </p>
-
-                <p>
-                    This app was made with <a
-                      className="App-link"
-                      href="https://create-react-app.dev/docs/getting-started#!"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    > create-react-app </a>
-                </p>
-
-                <p>
-                   Comments or problems? Mail <a className="App-link" href="mailto:saturnusunlimited@gmail.com"> saturnusunlimited@gmail.com </a>
-                </p>
-
-            </div>
-
-
-          </header>
 
         </div>
     );

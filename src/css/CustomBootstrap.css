@@ -1,4 +1,5 @@
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
 
-    background-color: #8064A2 !important;
+    background-color: var(--primary-foreground-color) !important;
+    border-color: white !important;
 }
