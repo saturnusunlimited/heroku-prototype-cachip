@@ -1,17 +1,24 @@
 import React from 'react';
+import { Component } from 'react'
 import double_quotes from './assets/svg/double_quotes.svg';
 import './App.css';
 import './css/CustomBootstrap.css'
 import quotes from './assets/json/quotes.json'
-import { Button, ButtonToolbar, Modal } from 'react-bootstrap';
-import { useState } from 'react';
+import { Button, ButtonToolbar } from 'react-bootstrap';
 
+class App extends Component {
 
-function App() {
+    constructor (props) {
 
-    let [quote, setQuote] = useState(randomQuote());
+        super(props);
 
-    function randomQuote() {
+        this.state = {
+
+            quote: this.randomQuote()
+        };
+    }
+
+    randomQuote () {
 
         var index = Math.floor(Math.random() * quotes.length);
         var quote = quotes[index];
@@ -24,12 +31,12 @@ function App() {
         return quote;
     }
 
-    function newRandomQuote () {
+    newRandomQuote () {
 
-        setQuote(randomQuote());
+        this.setState( { quote: this.randomQuote() } );
     }
 
-    function toggleLeetSpeak () {
+    toggleLeetSpeak () {
 
         // <Button bsStyle="secondary" onClick={toggleLeetSpeak}>Leet Speak</Button>
         alert('toggle leet speak');
@@ -38,77 +45,80 @@ function App() {
     // DEVELOPER NOTE: The return App template should probably be in a separate
     // file. Investigate ReactJS best practices for project structure.
     //
-    return (
+    render () {
 
-        <div className="App">
+        return (
 
-            <div className="App-header">
-                <ButtonToolbar>
-                    <Button variant="secondary" className="m-1" onClick={newRandomQuote}>Change Quote</Button>
-                    <Button variant="secondary" className="m-1" onClick={toggleLeetSpeak}>Leet Speak</Button>
-                </ButtonToolbar>
-            </div>
+            <div className="App">
 
-            <div className="App-body">
-
-                <div className="App-quote">
-
-                    <div className="quotes">
-                        <img src={double_quotes} className="App-quotes-left" alt="double quotes"/>
-                    </div>
-
-                    <div>
-                        <p className="App-quote-text">{quote.quoteText}</p>
-                    </div>
-
-                    <div className="quotes" >
-                        <img src={double_quotes} className="App-quotes-right" alt="double quotes"/>
-                    </div>
-
+                <div className="App-header">
+                    <ButtonToolbar>
+                        <Button variant="secondary" className="m-1" onClick={this.newRandomQuote.bind(this)}>Change Quote</Button>
+                        <Button variant="secondary" className="m-1" onClick={this.toggleLeetSpeak.bind(this)}>Leet Speak</Button>
+                    </ButtonToolbar>
                 </div>
 
-                <div className="App-quote">
+                <div className="App-body">
 
-                    <p className="App-quote-author">{quote.quoteAuthor}</p>
+                    <div className="App-quote">
+
+                        <div className="quotes">
+                            <img src={double_quotes} className="App-quotes-left" alt="double quotes"/>
+                        </div>
+
+                        <div>
+                            <p className="App-quote-text">{this.state.quote.quoteText}</p>
+                        </div>
+
+                        <div className="quotes" >
+                            <img src={double_quotes} className="App-quotes-right" alt="double quotes"/>
+                        </div>
+
+                    </div>
+
+                    <div className="App-quote">
+
+                        <p className="App-quote-author">{this.state.quote.quoteAuthor}</p>
+                    </div>
                 </div>
-            </div>
 
-            <div className="App-footer">
+                <div className="App-footer">
 
-                <div className="App-footer-inner">
-                    <p>
-                        Icons made by <a
-                        className="App-link"
-                        href="https://www.flaticon.com/authors/freepik"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Freepik">Freepik</a> from <a
-                        className="App-link"
-                        href="https://www.flaticon.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Flaticon">www.flaticon.com
-                        </a>
-                    </p>
+                    <div className="App-footer-inner">
+                        <p>
+                            Icons made by <a
+                            className="App-link"
+                            href="https://www.flaticon.com/authors/freepik"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Freepik">Freepik</a> from <a
+                            className="App-link"
+                            href="https://www.flaticon.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Flaticon">www.flaticon.com
+                            </a>
+                        </p>
 
-                    <p>
-                        This app was made with <a
-                          className="App-link"
-                          href="https://create-react-app.dev/docs/getting-started#!"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        > create-react-app </a>
-                    </p>
+                        <p>
+                            This app was made with <a
+                              className="App-link"
+                              href="https://create-react-app.dev/docs/getting-started#!"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            > create-react-app </a>
+                        </p>
 
-                    <p>
-                       Comments or problems? Mail <a className="App-link" href="mailto:saturnusunlimited@gmail.com"> saturnusunlimited@gmail.com </a>
-                    </p>
+                        <p>
+                           Comments or problems? Mail <a className="App-link" href="mailto:saturnusunlimited@gmail.com"> saturnusunlimited@gmail.com </a>
+                        </p>
 
+                    </div>
                 </div>
-            </div>
 
-        </div>
-    );
+            </div>
+        );
+    }
 }
 
 export default App;
