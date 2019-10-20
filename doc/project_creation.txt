@@ -1,0 +1,61 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-20 11:07
+
+GOAL
+
+	Describe (retroactively) what I did to init this project.
+
+COMMANDS
+
+    $ export $APP_NAME="prototype-heroku-caschip"
+    $ npx create-react $APP_NAME
+    $ cd ~/Kabisa_pairing/prototype-heroku-caschip
+    $ git init
+    $ heroku create $APP_NAME --buildpack mars/create-react-app
+    $ git add .
+    $ git commit -m "Start with create-react-app"
+    $ git push heroku master
+
+        ERROR
+
+            Enumerating objects: 21, done.
+            Counting objects: 100% (21/21), done.
+            Delta compression using up to 8 threads
+            Compressing objects: 100% (21/21), done.
+            Writing objects: 100% (21/21), 206.14 KiB | 7.63 MiB/s, done.
+            Total 21 (delta 0), reused 0 (delta 0)
+            remote: Compressing source files... done.
+            remote: Building source:
+            remote:
+            .
+            .
+            .
+            remote:        yarn install v1.19.1
+            remote:        [1/4] Resolving packages...
+            remote:        error Your lockfile needs to be updated, but yarn was run with `--frozen-lockfile`.
+            remote:        info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+            remote:
+            remote: -----> Build failed
+            remote:
+            remote:  !     Outdated Yarn lockfile
+            remote:
+            ...
+
+
+        SOLUTION
+
+            $ yarn install
+            $ git add yarn.lock
+            $ git commit -m "Updated Yarn lockfile"
+            $ git push heroku master
+
+    $ heroku open
+
+        This opened the ReactJS app on
+        
+            https://prototype-heroku-caschip.herokuapp.com/
