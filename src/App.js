@@ -3,12 +3,8 @@ import { Component } from 'react'
 import double_quotes from './assets/svg/double_quotes.svg';
 import './App.css';
 import './css/CustomBootstrap.css'
-import quotes from './assets/json/quotes.json'
 import { Button, ButtonToolbar } from 'react-bootstrap';
-
-// Bit of a hack. Cannot get the leet-speak-converter package to work with import.
-// This has a card in the Trello bug track list of this project.
-const { convertInput, convertInputReverse } = require('./lib/leet-converter');
+import QuotesDB from './lib/quotes-db.js'
 
 class App extends Component {
 
@@ -16,56 +12,29 @@ class App extends Component {
 
         super(props);
 
-        var quote = this.randomQuote();
+        var quoteDatabase = new QuotesDB();
 
         this.state = {
 
-            quote:      quote,
-            leetSpeak:  false,
-            translated: quote.quoteText,
+            quoteDatabase: quoteDatabase,
+            quote:         quoteDatabase.randomQuote(),
         };
-    }
-
-    randomQuote () {
-
-        var index = Math.floor(Math.random() * quotes.length);
-        var quote = quotes[index];
-
-        quote.leetSpeak = this.leetSpeak( quote.quoteText );
-
-        if (quote.quoteAuthor === "") { quote.quoteAuthor = "Anonymous"; }
-
-        return quote;
     }
 
     newRandomQuote () {
 
-        this.setState(
-            
-            { quote: this.randomQuote() },
-            () => this.translateQuote(),
-        );
+        var newQuote = this.state.quoteDatabase.randomQuote();
+        
+        newQuote.setLeetSpeak( this.state.quote.getLeetSpeak() );
+
+        this.setState( { quote: newQuote } );
     }
 
     toggleLeetSpeak () {
 
-        this.setState(
-            
-            { leetSpeak: !this.state.leetSpeak },
-            () => this.translateQuote(),
-        );
-    }
+        this.state.quote.toggleLeetSpeak();
 
-    translateQuote () {
-
-        var quote = this.state.quote;
-
-        this.setState( { translated: this.state.leetSpeak ? quote.leetSpeak : quote.quoteText } )
-    }
-
-    leetSpeak ( string ) {
-
-        return convertInput(string,'N');
+        this.setState( { quote: this.state.quote } );
     }
 
     // DEVELOPER NOTE: The return App template should probably be in a separate
@@ -93,7 +62,7 @@ class App extends Component {
                         </div>
 
                         <div>
-                            <p className="App-quote-text">{this.state.translated}</p>
+                            <p className="App-quote-text">{this.state.quote.text()} </p>
                         </div>
 
                         <div className="quotes" >

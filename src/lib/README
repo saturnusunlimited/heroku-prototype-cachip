@@ -16,6 +16,7 @@ DEPENDENCIES
 
 FILES
 
-	leet-converter.js  # This was copied from package leet-speak-converter See Trello bug track list.
-	README             # This file.
-
+	README            # This file.
+	quotes-db.js      # JavaScript class QuotesDB: an instance holds al the available quotes.
+	app-quote.js      # JavaScript class AppQuote: an instance holds a single quote.
+	leet-converter.js # This was copied from package leet-speak-converter See Trello bug track list.
