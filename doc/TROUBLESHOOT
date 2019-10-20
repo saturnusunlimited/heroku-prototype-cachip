@@ -1,0 +1,79 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-20 12:26
+
+GOAL
+
+	Document development problems that I encountered. 
+
+NOTE
+
+    I did not start this right away, so this is not complete.
+
+PROBLEM 1
+
+    $ git push heroku master
+
+        Enumerating objects: 28, done.
+        Counting objects: 100% (27/27), done.
+        Delta compression using up to 8 threads
+        Compressing objects: 100% (18/18), done.
+        Writing objects: 100% (19/19), 3.06 KiB | 3.06 MiB/s, done.
+        Total 19 (delta 11), reused 0 (delta 0)
+        remote: Compressing source files... done.
+        remote: Building source:
+        remote: 
+        remote: -----> React.js (create-react-app) multi app detected
+        remote: =====> Downloading Buildpack: https://github.com/heroku/heroku-buildpack-multi.git
+        remote: =====> Detected Framework: Multipack
+        remote: =====> Downloading Buildpack: https://github.com/heroku/heroku-buildpack-nodejs.git
+        remote: =====> Detected Framework: Node.js
+        remote: 
+        remote: -----> Build failed
+        remote:  !     Two different lockfiles found: package-lock.json and yarn.lock
+        remote: 
+        remote:        Both npm and yarn have created lockfiles for this application,
+        remote:        but only one can be used to install dependencies. Installing
+        remote:        dependencies using the wrong package manager can result in missing
+        remote:        packages or subtle bugs in production.
+        remote: 
+        remote:        - To use npm to install your application's dependencies please delete
+        remote:          the yarn.lock file.
+        remote: 
+        remote:          $ git rm yarn.lock
+        remote: 
+        remote:        - To use yarn to install your application's dependences please delete
+        remote:          the package-lock.json file.
+        remote: 
+        remote:          $ git rm package-lock.json
+        remote:     
+        remote:        https://help.heroku.com/0KU2EM53
+        remote: 
+        remote:  !     Push rejected, failed to compile React.js (create-react-app) multi app.
+        remote: 
+        remote:  !     Push failed
+        remote: Verifying deploy...
+        remote: 
+        remote: !	Push rejected to prototype-heroku-caschip.
+        remote: 
+        To https://git.heroku.com/prototype-heroku-caschip.git
+         ! [remote rejected] master -> master (pre-receive hook declined)
+        error: failed to push some refs to 'https://git.heroku.com/prototype-heroku-caschip.git'
+
+    SOLUTION
+
+        Choose either yarn or npm, I am going form yarn for no particular reason.
+
+         $ git rm package-lock.json
+
+
+FILES
+
+	project_creation.txt  # ASCII text
+	README                # This file.
+	TROUBLESHOOT          # Installation and usage trouble shooting.
+
