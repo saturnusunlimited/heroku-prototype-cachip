@@ -93,9 +93,8 @@ PROBLEM 1
 
         SOLUTION
 
-            Turns out I should have added react-bootstrap instead if bootstrap package
+            Turns out I should have added react-bootstrap instead next to bootstrap package
 
-            $ yarn remove bootstrap
             $ yarn add react-bootstrap
             
 FILES
