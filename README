@@ -28,10 +28,20 @@ COMMANDS
 
             This command starts a firefox session to the app running on heroku 
             https://prototype-heroku-caschip.herokuapp.com/
-                
-        $ git push heroku
+     GIT
+
+        $ git branch development
+
+            Do stuff
+
+        $ git add -A
+        $ git commit -m "Describe changes"
+        $ git branch master
+        $ git merge development
+        $ git push heroku master
 
             To deploy the current branch on heroku.
+
 
 FILES
 
