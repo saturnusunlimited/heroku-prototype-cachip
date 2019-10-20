@@ -13,6 +13,7 @@ GOAL
 COMMANDS
 
     $ convert -density 384 -background transparent -fill "#09d3ac"  -colorize 100 ../svg/double_quotes.svg -define icon:auto-resize -colors 256 favicon.ico
+    $ cp ./favicon.ico ../../public
 
 FILES
 
