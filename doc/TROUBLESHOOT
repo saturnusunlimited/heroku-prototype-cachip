@@ -64,14 +64,40 @@ PROBLEM 1
          ! [remote rejected] master -> master (pre-receive hook declined)
         error: failed to push some refs to 'https://git.heroku.com/prototype-heroku-caschip.git'
 
-    SOLUTION
+        SOLUTION
 
-        Choose either yarn or npm, I am going form yarn for no particular reason.
+            Choose either yarn or npm, I am going form yarn for no particular reason.
 
-         $ git rm package-lock.json
+             $ git rm package-lock.json
 
-         Then the rest of the git commands of course to commmit, push, deploy on heroku.
+             Then the rest of the git commands of course to commmit, push, deploy on heroku.
 
+    PROBLEM adding Bootstrap failed
+
+        I followed the instructions from https://create-react-app.dev/docs/adding-bootstrap/
+
+            yarn add bootstrap
+            Import Bootstrap CSS and optionally Bootstrap theme CSS in the beginning of your src/index.js file:
+
+            import 'bootstrap/dist/css/bootstrap.css';
+            // Put any other imports below so that CSS from your
+            // components takes precedence over default styles.
+
+        Got an error from 'yarn start' that babel-loader was missing.
+
+        SOLUTION
+
+            $ yarn install babel-loader
+
+    PROBLEM Still could not use bootstrap <Button>
+
+        SOLUTION
+
+            Turns out I should have added react-bootstrap instead if bootstrap package
+
+            $ yarn remove bootstrap
+            $ yarn add react-bootstrap
+            
 FILES
 
 	project_creation.txt  # ASCII text

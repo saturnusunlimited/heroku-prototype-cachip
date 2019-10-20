@@ -1,0 +1,145 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-20 13:14
+
+GOAL
+
+	Show what succesful deployment to heroku looks like.
+
+COMMAND
+
+    $ git push heroku master
+
+        Enumerating objects: 26, done.
+        Counting objects: 100% (21/21), done.
+        Delta compression using up to 8 threads
+        Compressing objects: 100% (14/14), done.
+        Writing objects: 100% (14/14), 1.87 KiB | 1.87 MiB/s, done.
+        Total 14 (delta 9), reused 0 (delta 0)
+        remote: Compressing source files... done.
+        remote: Building source:
+        remote:
+        remote: -----> React.js (create-react-app) multi app detected
+        remote: =====> Downloading Buildpack: https://github.com/heroku/heroku-buildpack-multi.git
+        remote: =====> Detected Framework: Multipack
+        remote: =====> Downloading Buildpack: https://github.com/heroku/heroku-buildpack-nodejs.git
+        remote: =====> Detected Framework: Node.js
+        remote:
+        remote: -----> Creating runtime environment
+        remote:
+        remote:        NPM_CONFIG_LOGLEVEL=error
+        remote:        NODE_ENV=production
+        remote:        NODE_MODULES_CACHE=true
+        remote:        NODE_VERBOSE=false
+        remote:
+        remote: -----> Installing binaries
+        remote:        engines.node (package.json):  unspecified
+        remote:        engines.npm (package.json):   unspecified (use default)
+        remote:        engines.yarn (package.json):  unspecified (use default)
+        remote:
+        remote:        Resolving node version 10.x...
+        remote:        Downloading and installing node 10.16.3...
+        remote:        Using default npm version: 6.9.0
+        remote:        Resolving yarn version 1.x...
+        remote:        Downloading and installing yarn (1.19.1)...
+        remote:        Installed yarn 1.19.1
+        remote:
+        remote: -----> Restoring cache
+        remote:        - node_modules
+        remote:
+        remote: -----> Installing dependencies
+        remote:        Installing node modules (yarn.lock)
+        remote:        yarn install v1.19.1
+        remote:        [1/4] Resolving packages...
+        remote:        [2/4] Fetching packages...
+        remote:        info fsevents@2.0.7: The platform "linux" is incompatible with this module.
+        remote:        info "fsevents@2.0.7" is an optional dependency and failed compatibility check. Excluding it from installation.
+        remote:        info fsevents@1.2.9: The platform "linux" is incompatible with this module.
+        remote:        info "fsevents@1.2.9" is an optional dependency and failed compatibility check. Excluding it from installation.
+        remote:        [3/4] Linking dependencies...
+        remote:        warning "react-scripts > @typescript-eslint/eslint-plugin > tsutils@3.17.1" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
+        remote:        [4/4] Building fresh packages...
+        remote:        Done in 41.64s.
+        remote:
+        remote: -----> Build
+        remote:        Running build (yarn)
+        remote:        yarn run v1.19.1
+        remote:        $ react-scripts build
+        remote:        Creating an optimized production build...
+        remote:        Compiled successfully.
+        remote:
+        remote:        File sizes after gzip:
+        remote:
+        remote:          166.21 KB  build/static/js/main.17ced85f.chunk.js
+        remote:          40.1 KB    build/static/js/2.27e47953.chunk.js
+        remote:          780 B      build/static/js/runtime-main.9b139427.js
+        remote:          605 B      build/static/css/main.5ee11fce.chunk.css
+        remote:
+        remote:        The project was built assuming it is hosted at the server root.
+        remote:        You can control this with the homepage field in your package.json.
+        remote:        For example, add this to build it for GitHub Pages:
+        remote:
+        remote:          "homepage" : "http://myname.github.io/myapp",
+        remote:
+        remote:        The build folder is ready to be deployed.
+        remote:        You may serve it with a static server:
+        remote:
+        remote:          yarn global add serve
+        remote:          serve -s build
+        remote:
+        remote:        Find out more about deployment here:
+        remote:
+        remote:          https://bit.ly/CRA-deploy
+        remote:
+        remote:        Done in 12.10s.
+        remote:
+        remote: -----> Pruning devDependencies
+        remote:        yarn install v1.19.1
+        remote:        [1/4] Resolving packages...
+        remote:        [2/4] Fetching packages...
+        remote:        info fsevents@2.0.7: The platform "linux" is incompatible with this module.
+        remote:        info "fsevents@2.0.7" is an optional dependency and failed compatibility check. Excluding it from installation.
+        remote:        info fsevents@1.2.9: The platform "linux" is incompatible with this module.
+        remote:        info "fsevents@1.2.9" is an optional dependency and failed compatibility check. Excluding it from installation.
+        remote:        [3/4] Linking dependencies...
+        remote:        warning "react-scripts > @typescript-eslint/eslint-plugin > tsutils@3.17.1" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
+        remote:        [4/4] Building fresh packages...
+        remote:        warning Ignored scripts due to flag.
+        remote:        Done in 8.14s.
+        remote:
+        remote: -----> Caching build
+        remote:        - node_modules
+        remote:
+        remote: -----> Build succeeded!
+        remote:  !     Unmet dependencies don't fail yarn install but may cause runtime issues
+        remote:        https://github.com/npm/npm/issues/7494
+        remote:
+        remote: =====> Downloading Buildpack: https://github.com/mars/create-react-app-inner-buildpack.git
+        remote: =====> Detected Framework: React.js (create-react-app)
+        remote:        Writing `static.json` to support create-react-app
+        remote:        Enabling runtime environment variables
+        remote: =====> Downloading Buildpack: https://github.com/heroku/heroku-buildpack-static.git
+        remote: =====> Detected Framework: Static HTML
+        remote:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+        remote:                                  Dload  Upload   Total   Spent    Left  Speed
+        remote: 100  838k  100  838k    0     0  15.1M      0 --:--:-- --:--:-- --:--:-- 15.1M
+        remote: -----> Installed directory to /app/bin
+        remote: Using release configuration from last framework (Static HTML).
+        remote: -----> Discovering process types
+        remote:        Procfile declares types     -> (none)
+        remote:        Default types for buildpack -> web
+        remote:
+        remote: -----> Compressing...
+        remote:        Done: 48.6M
+        remote: -----> Launching...
+        remote:        Released v5
+        remote:        https://prototype-heroku-caschip.herokuapp.com/ deployed to Heroku
+        remote:
+        remote: Verifying deploy... done.
+        To https://git.heroku.com/prototype-heroku-caschip.git
+           d2583c3..e43e549  master -> master
+
