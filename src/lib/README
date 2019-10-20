@@ -1,0 +1,21 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-20 20:38
+
+GOAL
+
+	Store reusable code in this directory.
+
+DEPENDENCIES
+
+	No documented dependencies yet.
+
+FILES
+
+	leet-converter.js  # This was copied from package leet-speak-converter See Trello bug track list.
+	README             # This file.
+
