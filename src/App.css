@@ -1,6 +1,8 @@
 :root {
 
-  --primary-foreground-color: #09d3ac;
+  --primary-foreground-color: #ffcc99;
+  --button-color:             #ff6633;
+  --link-color:               #ff6600;
   --header-background-color:  #181c24;
   --body-background-color:    #282c34;
   --footer-background-color:  #181c24;
@@ -85,7 +87,7 @@ div.App-footer-inner {
 
 .App-link {
 
-  color: var(--primary-foreground-color);
+  color: var(--link-color);
 }
 
 .App-quote {
