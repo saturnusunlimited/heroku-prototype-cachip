@@ -6,6 +6,10 @@ import './css/CustomBootstrap.css'
 import quotes from './assets/json/quotes.json'
 import { Button, ButtonToolbar } from 'react-bootstrap';
 
+// Bit of a hack. Cannot get the leet-speak-converter package to work with import.
+// This has a card in the Trello bug track list of this project.
+const { convertInput, convertInputReverse } = require('./lib/leet-converter');
+
 class App extends Component {
 
     constructor (props) {
@@ -61,7 +65,7 @@ class App extends Component {
 
     leetSpeak ( string ) {
 
-        return string + '1';
+        return convertInput(string,'N');
     }
 
     // DEVELOPER NOTE: The return App template should probably be in a separate
@@ -129,6 +133,18 @@ class App extends Component {
                               target="_blank"
                               rel="noopener noreferrer"
                             > create-react-app </a>
+                        </p>
+
+                        <p>
+                            Leet speak generated with <a
+                              className="App-link"
+                              href="https://github.com/alexdevero/leet-speak-converter"
+                              target="_blank"
+                              rel="noopener noreferrer"> leet-speak-generator </a> by <a 
+                              className="App-link"
+                              href="https://alexdevero.com/"
+                              target="_blank"
+                              rel="noopener noreferrer"> Alex Devero </a>
                         </p>
 
                         <p>
