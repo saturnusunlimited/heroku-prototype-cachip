@@ -12,9 +12,13 @@ class App extends Component {
 
         super(props);
 
+        var quote = this.randomQuote();
+
         this.state = {
 
-            quote: this.randomQuote()
+            quote:      quote,
+            leetSpeak:  false,
+            translated: quote.quoteText,
         };
     }
 
@@ -23,23 +27,41 @@ class App extends Component {
         var index = Math.floor(Math.random() * quotes.length);
         var quote = quotes[index];
 
-        if (quote.quoteAuthor === "") {
+        quote.leetSpeak = this.leetSpeak( quote.quoteText );
 
-            quote.quoteAuthor = "Anonymous";
-        }
+        if (quote.quoteAuthor === "") { quote.quoteAuthor = "Anonymous"; }
 
         return quote;
     }
 
     newRandomQuote () {
 
-        this.setState( { quote: this.randomQuote() } );
+        this.setState(
+            
+            { quote: this.randomQuote() },
+            () => this.translateQuote(),
+        );
     }
 
     toggleLeetSpeak () {
 
-        // <Button bsStyle="secondary" onClick={toggleLeetSpeak}>Leet Speak</Button>
-        alert('toggle leet speak');
+        this.setState(
+            
+            { leetSpeak: !this.state.leetSpeak },
+            () => this.translateQuote(),
+        );
+    }
+
+    translateQuote () {
+
+        var quote = this.state.quote;
+
+        this.setState( { translated: this.state.leetSpeak ? quote.leetSpeak : quote.quoteText } )
+    }
+
+    leetSpeak ( string ) {
+
+        return string + '1';
     }
 
     // DEVELOPER NOTE: The return App template should probably be in a separate
@@ -67,7 +89,7 @@ class App extends Component {
                         </div>
 
                         <div>
-                            <p className="App-quote-text">{this.state.quote.quoteText}</p>
+                            <p className="App-quote-text">{this.state.translated}</p>
                         </div>
 
                         <div className="quotes" >
