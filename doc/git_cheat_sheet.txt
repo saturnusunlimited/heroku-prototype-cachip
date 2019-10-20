@@ -32,3 +32,5 @@ COMMANDS
     git reset --hard
     git revert .local_history
     git merge development
+    git add --all
+    git add -A
