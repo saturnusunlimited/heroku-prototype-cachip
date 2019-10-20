@@ -27,7 +27,6 @@ function App() {
       <header className="App-header">
 
         <h1>Quote</h1>
-        <h2>saturnusunlimited@gmail.com</h2>
 
         <div className="App-quote">
 
@@ -50,8 +49,9 @@ function App() {
         </div>
 
         <div className="App-credits">
-            <small>
-            Icons made by <a
+
+            <p>
+                Icons made by <a
                 className="App-link"
                 href="https://www.flaticon.com/authors/freepik"
                 target="_blank"
@@ -63,20 +63,23 @@ function App() {
                 rel="noopener noreferrer"
                 title="Flaticon">www.flaticon.com
                 </a>
-            </small>
+            </p>
 
             <p>
-                <small> This app was made with </small>
-                <a
+                This app was made with <a
                   className="App-link"
                   href="https://create-react-app.dev/docs/getting-started#!"
                   target="_blank"
                   rel="noopener noreferrer"
-                >
-                    <small> create-react-app </small>
-                </a>
+                > create-react-app </a>
             </p>
+
+            <p>
+               Comments or problems? Mail <a className="App-link" href="mailto:saturnusunlimited@gmail.com"> saturnusunlimited@gmail.com </a>
+            </p>
+
         </div>
+
 
       </header>
 

@@ -70,6 +70,7 @@ PROBLEM 1
 
          $ git rm package-lock.json
 
+         Then the rest of the git commands of course to commmit, push, deploy on heroku.
 
 FILES
 

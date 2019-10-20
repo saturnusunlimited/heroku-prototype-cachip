@@ -1,0 +1,36 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-20 12:56
+
+GOAL
+
+	Personal cheat sheet git.
+
+TO BE DONE
+
+    Add descriptions
+
+COMMANDS
+
+    git init
+    git add .
+    git commit -m "Start with create-react-app"
+    git push heroku master
+    git push heroku master
+    git branch -a
+    git remote
+    git remote add origin https://github.com/saturnusunlimited/heroku-prototype-cachip.git
+
+    git checkout -b development # Creates a new branch
+    git checkout development    # Looks for existing branch
+    git status
+    git revert all
+    git reset --hard
+    git revert .local_history
+    git merge development
+    git add --all
+    git add -A
