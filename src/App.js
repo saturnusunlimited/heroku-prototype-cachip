@@ -46,14 +46,14 @@ class App extends Component {
 
             <div className="App">
 
-                <div className="App-header">
+                <div className="App-banner App-header">
                     <ButtonToolbar>
                         <Button variant="secondary" className="m-1" onClick={this.newRandomQuote.bind(this)}>Change Quote</Button>
                         <Button variant="secondary" className="m-1" onClick={this.toggleLeetSpeak.bind(this)}>Leet Speak</Button>
                     </ButtonToolbar>
                 </div>
 
-                <div className="App-body">
+                <div className="App-banner App-body">
 
                     <div className="App-quote">
 
@@ -77,10 +77,10 @@ class App extends Component {
                     </div>
                 </div>
 
-                <div className="App-footer">
+                <div className="App-banner App-footer">
 
                     <div className="App-footer-inner">
-                        <p>
+                        <div>
                             Icons made by <a
                             className="App-link"
                             href="https://www.flaticon.com/authors/freepik"
@@ -93,18 +93,18 @@ class App extends Component {
                             rel="noopener noreferrer"
                             title="Flaticon">www.flaticon.com
                             </a>
-                        </p>
+                        </div>
 
-                        <p>
+                        <div>
                             This app was made with <a
                               className="App-link"
                               href="https://create-react-app.dev/docs/getting-started#!"
                               target="_blank"
                               rel="noopener noreferrer"
                             > create-react-app </a>
-                        </p>
+                        </div>
 
-                        <p>
+                        <div>
                             Leet speak generated with <a
                               className="App-link"
                               href="https://github.com/alexdevero/leet-speak-converter"
@@ -114,11 +114,11 @@ class App extends Component {
                               href="https://alexdevero.com/"
                               target="_blank"
                               rel="noopener noreferrer"> Alex Devero </a>
-                        </p>
+                        </div>
 
-                        <p>
+                        <div>
                            Comments or problems? Mail <a className="App-link" href="mailto:saturnusunlimited@gmail.com"> saturnusunlimited@gmail.com </a>
-                        </p>
+                        </div>
 
                     </div>
                 </div>

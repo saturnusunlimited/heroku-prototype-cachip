@@ -1,5 +1,6 @@
 :root {
 
+  --primary-background-color: #ffffff;
   --primary-foreground-color: #ffcc99;
   --button-color:             #ff6633;
   --link-color:               #ff6600;
@@ -10,14 +11,64 @@
 
 .App {
 
-  text-align: center;
+	text-align: center;
+	background-color: var(--primary-background-color);
+	color: var(--primary-foreground-color);
 }
 
-.App-title {
+div.App-banner {
 
-    color: red;
+	height: 10vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+
+	background-color: var(--primary-background-color);
+	color: white;
 }
 
+div.App-banner.App-header {
+
+	background-color: var(--header-background-color);
+	height: 10vh;
+}
+
+div.App-banner.App-body {
+
+	background-color: var(--body-background-color);
+	min-height: 70vh;
+}
+
+div.App-banner.App-footer {
+
+	background-color: var(--footer-background-color);
+	height: 20vh;
+	font-size: 1vw;
+}
+
+div.App-footer-inner {
+
+    width: 90%;
+	text-align: right;
+}
+
+p.App-footer-inner {
+
+	margin: 0;
+	padding: 0;
+}
+
+.App-link {
+
+  color: var(--link-color);
+}
+
+/* In this CSS style sheet 'quotes' refer to the two double quote svg images in
+ * the app, and 'quote' to the quoted phrase(s)/sentence(s) that are between
+ * the quote images.
+ */
 div.quotes{
 
     width: 100%;
@@ -39,56 +90,6 @@ div.quotes{
   float: right;
 }
 
-
-.App-header {
-
-	background-color: var(--header-background-color);
-	height: 10vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-.App-body {
-
-	background-color: var(--body-background-color);
-	min-height: 70vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-div.App-footer {
-
-	font-size: 1vw;
-	background-color: var(--footer-background-color);
-	height: 20vh;
-	display: flex;
-	flex-direction: column;
-	text-align: right;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 1vmin);
-	color: white;
-}
-
-div.App-footer-inner {
-
-    width: 90%;
-	text-align: right;
-}
-
-
-.App-link {
-
-  color: var(--link-color);
-}
 
 .App-quote {
 
