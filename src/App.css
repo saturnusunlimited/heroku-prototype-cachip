@@ -4,8 +4,9 @@
   --primary-foreground-color: #ffcc99;
   --button-color:             #ff6633;
   --link-color:               #ff6600;
-  --header-background-color:  #181c24;
+  --header-background-color:  black;
   --body-background-color:    #282c34;
+  --share-background-color:   black;
   --footer-background-color:  #181c24;
 }
 
@@ -38,7 +39,14 @@ div.App-banner.App-header {
 div.App-banner.App-body {
 
 	background-color: var(--body-background-color);
-	min-height: 70vh;
+	min-height: 65vh;
+}
+
+div.App-banner.App-share-banner {
+
+	background-color: var(--share-background-color);
+	height: 5vh;
+	font-size: 1vw;
 }
 
 div.App-banner.App-footer {

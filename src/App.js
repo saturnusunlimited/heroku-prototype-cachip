@@ -6,6 +6,63 @@ import './css/CustomBootstrap.css'
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import QuotesDB from './lib/quotes-db.js'
 
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  PinterestShareButton,
+  VKShareButton,
+  OKShareButton,
+  RedditShareButton,
+  TumblrShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  ViberShareButton,
+  WorkplaceShareButton,
+  LineShareButton,
+  PocketShareButton,
+  InstapaperShareButton,
+  EmailShareButton,
+} from 'react-share';
+
+import {
+  FacebookIcon,
+  TwitterIcon,
+  TelegramIcon,
+  WhatsappIcon,
+  LinkedinIcon,
+  PinterestIcon,
+  VKIcon,
+  OKIcon,
+  RedditIcon,
+  TumblrIcon,
+  LivejournalIcon,
+  MailruIcon,
+  ViberIcon,
+  WorkplaceIcon,
+  LineIcon,
+  PocketIcon,
+  InstapaperIcon,
+  EmailIcon,
+} from 'react-share';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+/*
+<Router>
+    <Route path="/quote/:id" component={AboutPage} />
+    <Link to="/quote/1">Quote 1</Link>
+</Router>
+*/
+
+
 class App extends Component {
 
     constructor (props) {
@@ -35,6 +92,11 @@ class App extends Component {
         this.state.quote.toggleLeetSpeak();
 
         this.setState( { quote: this.state.quote } );
+    }
+
+    shareUrl () {
+
+        return "https://prototype-heroku-caschip.herokuapp.com";
     }
 
     // DEVELOPER NOTE: The return App template should probably be in a separate
@@ -75,6 +137,25 @@ class App extends Component {
 
                         <p className="App-quote-author">{this.state.quote.quoteAuthor}</p>
                     </div>
+                </div>
+
+                <div className="App-banner App-share-banner">
+
+                    <ButtonToolbar>
+
+                        <TwitterShareButton className="m-1" url={this.shareUrl()}>
+                            <TwitterIcon size={32} round={true} />
+                        </TwitterShareButton>
+
+                        <EmailShareButton className="m-1" url={this.shareUrl()}>
+                            <EmailIcon size={32} round={true} />
+                        </EmailShareButton>
+
+                        <WhatsappShareButton className="m-1" url={this.shareUrl()}>
+                            <WhatsappIcon size={32} round={true} />
+                        </WhatsappShareButton>
+
+                    </ButtonToolbar>
                 </div>
 
                 <div className="App-banner App-footer">
