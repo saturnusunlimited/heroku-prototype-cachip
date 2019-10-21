@@ -135,7 +135,7 @@ class App extends Component {
 
                     <div className="App-quote">
 
-                        <p className="App-quote-author">{this.state.quote.quoteAuthor}</p>
+                        <p className="App-quote-author">{this.state.quote.author()}</p>
                     </div>
                 </div>
 
