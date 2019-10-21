@@ -69,12 +69,13 @@ class App extends Component {
 
         super(props);
 
-        var quoteDatabase = new QuotesDB();
+        const quoteDatabase = new QuotesDB();
 
         this.state = {
 
             quoteDatabase: quoteDatabase,
             quote:         quoteDatabase.randomQuote(),
+            search:        "",
         };
     }
 
@@ -98,6 +99,7 @@ class App extends Component {
 
         return "https://prototype-heroku-caschip.herokuapp.com";
     }
+
 
     // DEVELOPER NOTE: The return App template should probably be in a separate
     // file. Investigate ReactJS best practices for project structure.
