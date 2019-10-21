@@ -20,6 +20,12 @@ information, whether oral or written, obtained by you from us or from this
 repository shall create any warranty for the software. The above includes
 all third-party software that is refered to in this repository.
 
+## Screen shots
+
+![Browser](./doc/screenshots/browser.png)
+
+![Mobile](./doc/screenshots/mobile_small.png)
+
 ## Installation on Windows
 
 The following procedure was tested on a clean Windos 10 installation on a virtual
