@@ -1,0 +1,27 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-21 15:05
+
+GOAL
+
+	screenshots
+
+COMMAND
+
+    $ convert -resize 270x540 mobile.png mobile_small.png
+
+DEPENDENCIES
+
+	$ ImageMagick command line tool 'convert'
+
+FILES
+
+	browser.png       # PNG image data, 1847 x 891, 8-bit/color RGBA, non-interlaced
+	mobile.png        # PNG image data, 1080 x 2160, 8-bit/color RGBA, non-interlaced
+	mobile_small.png  # PNG image data, 270 x 540, 8-bit/color RGBA, non-interlaced
+	README            # This file.
+
