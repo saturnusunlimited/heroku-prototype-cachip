@@ -1,0 +1,31 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-21 17:23
+
+GOAL
+
+	json of quotes
+
+    Downloaded from https://github.com/JamesFT/Database-Quotes-JSON
+
+    They contain some strange characters, even vim does not read them properly.
+    These are supposed to be comma, apostrophe, semicolon, colon and the like.
+    I do not know how to conver them properly.
+
+    $ file -bi quotes.json
+
+        application/json; charset=unknown-8bit
+
+DEPENDENCIES
+
+	No documented dependencies yet.
+
+FILES
+
+	quotes.json  # JSON data
+	README       # This file.
+

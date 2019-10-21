@@ -14,6 +14,14 @@ README
 
     This file resides in git based code repository.
 
+QUOTES
+
+    Downloaded from https://github.com/JamesFT/Database-Quotes-JSON
+
+    They contain some strange characters, even vim does not read them properly.
+    These are supposed to be comma, apostrophe, semicolon, colon and the like.
+    I do not know how to conver them properly.
+
 COMMANDS
 
     DEVELOPMENT
