@@ -1,8 +1,8 @@
 ## General
 
 The code in this repository implements a simple web app that displays a random
-quote. This is part of an assignment and is work in progress. This project was
-bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+quote. The project is part of an assignment for a job application, and it is
+work in progress. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Disclaimer
 
@@ -22,15 +22,17 @@ all third-party software that is refered to in this repository.
 
 ## Installation on Windows
 
-This procedure was tested on a clean Windos 10 installation on a virtual
-machine. Basically you need NodeJS and yarn to install this package. To
-intall those two, you need a windows command line package manager. In this
+The following procedure was tested on a clean Windos 10 installation on a virtual
+machine. Basically you need NodeJS and yarn to install this project. To
+intall those two you need a windows command line package manager. In this
 guide we use package manager 'scoop'
 ([how to install the scoop package manager in windows-10](https://www.onmsft.com/how-to/how-to-install-the-scoop-package-manager-in-windows-10)).
 
-    1. Start up the Windows Power Shell.
+    1. Download and unzip this repository from GitHub to your machine.
 
-    2. INSTALL SCOOP
+    2. Start up the Windows Power Shell.
+
+    3. INSTALL SCOOP
 
         Skip this step if the scoop command is already available on the command
         line of your Windows Power Shell.
@@ -38,24 +40,28 @@ guide we use package manager 'scoop'
         > Set-ExecutionPolicy RemoteSigned -scope CurrentUser
         > iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 
-    3. INSTALL NodeJS
+    4. INSTALL NodeJS
 
         Skip this step if nodejs is already installed on your system.
 
         > scoop install nodejs
 
-    4. INSTALL yarn
+    5. INSTALL yarn
 
         Skip this step if yarn is already installed on your system.
 
         > scoop install yarn
 
-    5. INSTALL this package
+    6. INSTALL dependencies of this package
 
-        > cd \to\main\directory\of\this\code\base
+        The yarn command below should be executed in the main folder
+        of this repository. That is the folder where you can find
+        the file you are reading now (README.md).
+
+        > cd \your\local\main\folder\of\this\repository
         > yarn add react-scripts
 
-    6. STARTUP
+    7. STARTUP
 
         This will start the server and open the quote app in your browser.
 
