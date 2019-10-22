@@ -62,6 +62,7 @@ class QuotesDB {
 
 			if (quote.text().match(regexp) || quote.author().match(regexp)) {
 
+                this.#currentSearchIndex = index;
 				return quote;
 			}
 		}
