@@ -49,6 +49,12 @@ div.App-banner.App-share-banner {
 	font-size: 1vw;
 }
 
+.App-right-align {
+
+	position: absolute;
+	right: 10vh;
+}
+
 div.App-banner.App-footer {
 
 	background-color: var(--footer-background-color);
@@ -122,4 +128,9 @@ div.App-quote {
   	color: var(--primary-foreground-color);
     font-size: calc(10px + 4vmin);
 	font-style: bold;
+}
+
+.float-right {
+
+	float: right;
 }

@@ -3,7 +3,7 @@ import { Component } from 'react'
 import double_quotes from './assets/svg/double_quotes.svg';
 import './App.css';
 import './css/CustomBootstrap.css'
-import { Button, ButtonToolbar } from 'react-bootstrap';
+import { Button, ButtonToolbar, InputGroup, FormControl } from 'react-bootstrap';
 import QuotesDB from './lib/quotes-db.js'
 
 import {
@@ -100,6 +100,24 @@ class App extends Component {
         return "https://prototype-heroku-caschip.herokuapp.com";
     }
 
+    handleKeyPress ( change, keyEvent ) {
+
+        var quoteRegexp = keyEvent.target.value;
+
+        if (keyEvent.key === 'Enter') {
+
+            var newQuote = this.state.quoteDatabase.search( quoteRegexp );
+
+            if (newQuote != null) {
+
+                this.setState( { quote: newQuote } );
+
+            } else {
+
+                alert( `Cannot find quote text or author that matches ${quoteRegexp}` ) ;
+            }
+        }
+    }
 
     // DEVELOPER NOTE: The return App template should probably be in a separate
     // file. Investigate ReactJS best practices for project structure.
@@ -110,8 +128,18 @@ class App extends Component {
 
             <div className="App">
 
+
                 <div className="App-banner App-header">
                     <ButtonToolbar>
+                        <InputGroup className="mb-3 App-right-align">
+                            <InputGroup.Prepend>
+                                <InputGroup.Text>Search</InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <FormControl
+                                onKeyPress={this.handleKeyPress.bind(this, 'search')}
+                             />
+                        </InputGroup>
+
                         <Button variant="secondary" className="m-1" onClick={this.newRandomQuote.bind(this)}>Change Quote</Button>
                         <Button variant="secondary" className="m-1" onClick={this.toggleLeetSpeak.bind(this)}>Leet Speak</Button>
                     </ButtonToolbar>
