@@ -1,0 +1,106 @@
+#!/bin/bash
+
+this_script=`basename $0`
+helping=false
+
+# Use this function to be verbose
+function tell () {
+
+	level="${1}"
+	msg="${2}"
+
+	if [ "${verbose}" -ge "${level}" ] ; then
+
+		echo "INFO ${this_script}: ${msg}"
+	fi
+}
+
+# Use this function to warn without exit
+function warn () {
+
+	msg="${1}"
+
+	echo "WARNING ${this_script}: ${msg}" 1>&2
+}
+
+# Use this function to exit on error
+function die () {
+
+	exit_code="${1}"
+	msg="${2}"
+
+	echo "ERROR ${this_script}: ${msg}" 1>&2
+	exit ${exit_code}
+}
+
+# Manual, output of -h/--help
+function show_help () {
+
+	cat <<-EOF
+
+	NAME
+
+	    ${this_script} - Prints the columns of all databases
+
+	SYNOPSIS
+
+	    ${this_script} [OPTIONS] FILE
+
+	DESCRIPTION
+
+         Prints the columns of tables of all databases owned by the 'root' user
+         of this project named 'reactjs'. You need to know the mysql password
+         of this user to run this script.
+
+	OPTIONS
+
+	    -v, --verbose
+
+		    Be more informative with output.
+
+	    -h, --help
+
+		    Print this help message
+	EOF
+}
+
+# Reset all variables that might be set, and start parsing the options
+verbose=0
+
+while :
+do
+    case $1 in
+        -h | --help | -\?)
+			helping=true
+			shift
+            ;;
+        -v | --verbose)
+            # Each instance of -v adds 1 to verbosity
+            verbose=$((verbose+1))
+			echo "Getting louder, verbosity level: ${verbose}"
+            shift
+            ;;
+        --) # End of all options
+            shift
+            break
+            ;;
+        -*)
+            echo "WARN: Unknown option (ignored): $1" >&2
+            shift
+            ;;
+        *)  # no more options. Stop while loop
+            break
+            ;;
+    esac
+done
+
+# This implements -h|--help
+if $helping ; then
+
+	show_help
+	exit 0
+fi
+
+# Main script code below this line
+echo "Accessing mysql account of user 'reactjs'"
+mysql -t -u reactjs -p < ../mysql/columns.sql

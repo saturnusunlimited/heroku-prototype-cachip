@@ -1,0 +1,38 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-23 15:29
+
+GOAL
+
+	src
+
+DEPENDENCIES
+
+    $ mysql --version
+    
+        Ver 14.14 Distrib 5.7.27, for Linux (x86_64) using  EditLine wrapper
+
+COMMANDS
+
+    $ yarn start       # Start the application on localhost
+    $ yarn test        # Run tests
+    $ node server      # Run the database back-end locally
+    $ mysql-workbench  # GUI for MySQL
+
+FILES
+
+	App.css          # Main CSS file
+	App.js           # Main application ReactJS file
+	App.test.js      # Main test ReactJS file
+	README           # This file.
+	assets/          # Main assests file, i.e. non-code content like images, design stuff, audio files, etcetera
+	css/             # Cascading Style Sheet (css) files go here.
+	index.css        # ASCII text
+	index.js         # Java source, ASCII text
+	lib/             # Reusable code goes here.
+	server.js        # JavaScript to communicate with database. Probably should go to lib/
+	serviceWorker.js # Auto-generated, to be used in production for faster loading of the site.
