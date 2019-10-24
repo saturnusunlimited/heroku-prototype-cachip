@@ -1,0 +1,30 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-24 16:13
+
+GOAL
+
+    Store MySql database related stuff here.
+    
+RESTRICTION
+
+    Store things like database schema info, mysql scripts, migration
+    scripts/descriptions. Not ReactJS/JavaScript code that models the db or
+    code testing that ReactJS/JavaScript code though. Also, documentation
+    should go in ../doc/db although you could make a symbolic link to ../doc/db
+    here as ./doc
+
+DEPENDENCIES
+
+	No documented dependencies yet.
+
+FILES
+
+	model.mwb      # Zip archive data, at least v2.0 to extract
+	model.mwb.bak  # Zip archive data, at least v2.0 to extract
+	README         # This file.
+

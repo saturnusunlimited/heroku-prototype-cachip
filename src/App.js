@@ -100,7 +100,7 @@ class App extends Component {
         return "https://prototype-heroku-caschip.herokuapp.com";
     }
 
-    handleKeyPress ( change, keyEvent ) {
+    handleKeyPress = ( keyEvent ) => {
 
         var quoteRegexp = keyEvent.target.value;
 
@@ -136,7 +136,7 @@ class App extends Component {
                                 <InputGroup.Text>Search</InputGroup.Text>
                             </InputGroup.Prepend>
                             <FormControl
-                                onKeyPress={this.handleKeyPress.bind(this, 'search')}
+                                onKeyPress={this.handleKeyPress}
                              />
                         </InputGroup>
 

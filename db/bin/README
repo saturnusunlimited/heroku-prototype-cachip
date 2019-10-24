@@ -1,0 +1,22 @@
+AUTHOR
+
+	adriaan1@gmail.com
+
+DATE
+
+	This file was first generated on 2019-10-24 17:37
+
+GOAL
+
+    Store executables that query or modify the database for development here.
+
+DEPENDENCIES
+
+	$ mysql
+
+FILES
+
+	foreign_keys  # Prints the foreign keys of all databases
+	README        # This file.
+	tables        # Prints the tables of all databases
+

@@ -3,9 +3,10 @@ import AppQuote from './app-quote.js'
 
 class QuotesDB {
 
-    #name = "default";
-    #json = defaultQuotesDatabase;
-    #list = [];
+    #name    = "default";
+    #json    = defaultQuotesDatabase;
+    #list    = [];
+	#history = [];
 
 	#currentSearchIndex = 0;
 	#currentSearch      = "";
@@ -13,9 +14,10 @@ class QuotesDB {
 
     constructor( name, json ) {
 
-        this.#name = name || this.#name;
-        this.#json = json || this.#json;
-        this.#list = [];
+        this.#name    = name || this.#name;
+        this.#json    = json || this.#json;
+        this.#list    = [];
+		this.#history = [];
 
         this.init();
     }
@@ -35,7 +37,11 @@ class QuotesDB {
 
     get ( index ) {
 
-        return this.#list[index];
+		const quote = this.#list[index];
+
+		this.#history.push ( quote );
+
+        return quote;
     }
 
     randomQuote () {
@@ -68,6 +74,10 @@ class QuotesDB {
 		}
 
 		return null;
+	}
+
+	addToHistory () {
+
 	}
 }
 
