@@ -65,19 +65,24 @@ import {
 
 class App extends Component {
 
+
     constructor (props) {
 
         super(props);
 
-        const quoteDatabase      = new QuotesDB();
+        const quoteDatabase = new QuotesDB();
+
+        this.smallViewportWidth = 1000;
 
         this.state = {
 
             quoteDatabase: quoteDatabase,
             quote:         quoteDatabase.randomQuote(),
             search:        "",
-            smallViewportWidth: 1000,
+            viewportWidth: window.visualViewport.width,
         };
+
+        window.addEventListener('resize', this.handleResize)
     }
 
     newRandomQuote () {
@@ -101,6 +106,7 @@ class App extends Component {
         return "https://prototype-heroku-caschip.herokuapp.com";
     }
 
+    // Note to self: This lambda notation will rid you of the need to use .bind(this)
     handleKeyPress = ( keyEvent ) => {
 
         var quoteRegexp = keyEvent.target.value;
@@ -132,12 +138,27 @@ class App extends Component {
 
     searchFieldRight () {
 
-        return (window.visualViewport.width > this.state.smallViewportWidth) ?  this.searchField("m-1 App-right-align") : "";
+        return (window.visualViewport.width > this.smallViewportWidth) ?  this.searchField("m-1 App-right-align") : "";
     }
 
     searchFieldBottom () {
 
-        return (window.visualViewport.width <= this.state.smallViewportWidth) ?  this.searchField("m-1") : "";
+        return (window.visualViewport.width <= this.smallViewportWidth) ?  this.searchField("m-1") : "";
+    }
+
+    handleResize = () => {
+
+        let width     = this.state.viewportWidth
+        let newWidth  = window.visualViewport.width;
+        let treshold  = this.smallViewportWidth;
+        let rerender  = false;
+
+        if (width >  treshold && newWidth <= treshold ) { rerender = true; }
+        if (width <= treshold && newWidth >  treshold ) { rerender = true; }
+
+        this.state.viewportWidth = newWidth;
+
+        if (rerender) { this.setState( { state: this.state } ) }
     }
 
     // DEVELOPER NOTE: The return App template should probably be in a separate
