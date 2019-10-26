@@ -97,6 +97,17 @@ PROBLEM 1
 
             $ yarn add react-bootstrap
             
+    PROBLEM
+
+        <?> in output html
+        Encoding of file quotes.json was not in utf-8
+
+    SOLUTION
+
+        $ file -i quotes.json 
+        $ iconv -f iso-8859-1 -t utf-8 quotes.json -o outputfile
+        $ mv outputfile quotes.quotes
+
 FILES
 
 	project_creation.txt  # ASCII text
