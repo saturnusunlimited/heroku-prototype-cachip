@@ -36,17 +36,36 @@ div.App-banner.App-header {
 	height: 15vh;
 }
 
+div.App-banner.App-header.two-button-rows {
+
+	height: 15vh;
+}
+
+div.App-banner.App-header.one-button-row {
+
+	height: 10vh;
+}
+
 div.App-banner.App-body {
 
 	background-color: var(--body-background-color);
 	min-height: 60vh;
 }
 
+div.App-banner.App-body.two-button-rows {
+
+	height: 60vh;
+}
+
+div.App-banner.App-body.one-button-row {
+
+	height: 65vh;
+}
+
 div.App-banner.App-share-banner {
 
 	background-color: var(--share-background-color);
-	height: 5vh;
-	font-size: 1vw;
+	height: 6vmax;
 }
 
 .App-right-align {
@@ -59,7 +78,7 @@ div.App-banner.App-footer {
 
 	background-color: var(--footer-background-color);
 	height: 20vh;
-	font-size: 1vw;
+	font-size: 1.5vh;
 }
 
 div.App-footer-inner {
