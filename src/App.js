@@ -69,13 +69,14 @@ class App extends Component {
 
         super(props);
 
-        const quoteDatabase = new QuotesDB();
+        const quoteDatabase      = new QuotesDB();
 
         this.state = {
 
             quoteDatabase: quoteDatabase,
             quote:         quoteDatabase.randomQuote(),
             search:        "",
+            smallViewportWidth: 1000,
         };
     }
 
@@ -119,6 +120,21 @@ class App extends Component {
         }
     }
 
+    searchField( klass ) {
+
+        return  <InputGroup className={`${klass}`}>
+                    <InputGroup.Prepend>
+                        <InputGroup.Text>Search</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl onKeyPress={this.handleKeyPress} />
+                </InputGroup>
+    }
+
+    searchFieldTop () {
+
+        return (window.visualViewport.width > this.state.smallViewportWidth) ?  this.searchField("m-1 App-right-align") : "";
+    }
+
     // DEVELOPER NOTE: The return App template should probably be in a separate
     // file. Investigate ReactJS best practices for project structure.
     //
@@ -131,15 +147,7 @@ class App extends Component {
 
                 <div className="App-banner App-header">
                     <ButtonToolbar>
-                        <InputGroup className="mb-3 App-right-align">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text>Search</InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl
-                                onKeyPress={this.handleKeyPress}
-                             />
-                        </InputGroup>
-
+                        {this.searchFieldTop()}
                         <Button variant="secondary" className="m-1" onClick={this.newRandomQuote.bind(this)}>Change Quote</Button>
                         <Button variant="secondary" className="m-1" onClick={this.toggleLeetSpeak.bind(this)}>Leet Speak</Button>
                     </ButtonToolbar>
