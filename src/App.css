@@ -2,7 +2,10 @@
 
   --primary-background-color: #ffffff;
   --primary-foreground-color: #ffcc99;
-  --button-color:             #ff6633;
+  --button-background-color:  #ff6633;
+  --button-border-color:      #ffffff;
+  --button-text-color:        #ffffff;
+  --button-color:             #ffffff;
   --link-color:               #ff6600;
   --header-background-color:  black;
   --body-background-color:    #282c34;

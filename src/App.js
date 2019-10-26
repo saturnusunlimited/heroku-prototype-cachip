@@ -137,7 +137,7 @@ class App extends Component {
                     <InputGroup.Prepend>
                         <InputGroup.Text>Search</InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl onKeyPress={this.handleKeyPress} />
+                    <FormControl className="green" onKeyPress={this.handleKeyPress} />
                 </InputGroup>
     }
 
