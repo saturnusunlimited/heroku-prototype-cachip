@@ -3,7 +3,7 @@ const { convertInput, convertInputReverse } = require('./leet-converter');
 class AppQuote {
 
 	#text      = "";
-	#author    = "Anonymous";
+	#author    = "Anonymousá";
 	#leetSpeak = false;
 
     constructor( parameters ) {

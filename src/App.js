@@ -4,7 +4,6 @@ import double_quotes from './assets/svg/double_quotes.svg';
 import './App.css';
 import './css/CustomBootstrap.css'
 import { Button, ButtonToolbar, InputGroup, FormControl } from 'react-bootstrap';
-import 'font-awesome/css/font-awesome.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import QuotesDB from './lib/quotes-db.js'
