@@ -130,9 +130,14 @@ class App extends Component {
                 </InputGroup>
     }
 
-    searchFieldTop () {
+    searchFieldRight () {
 
         return (window.visualViewport.width > this.state.smallViewportWidth) ?  this.searchField("m-1 App-right-align") : "";
+    }
+
+    searchFieldBottom () {
+
+        return (window.visualViewport.width <= this.state.smallViewportWidth) ?  this.searchField("m-1") : "";
     }
 
     // DEVELOPER NOTE: The return App template should probably be in a separate
@@ -147,9 +152,12 @@ class App extends Component {
 
                 <div className="App-banner App-header">
                     <ButtonToolbar>
-                        {this.searchFieldTop()}
+                        {this.searchFieldRight()}
                         <Button variant="secondary" className="m-1" onClick={this.newRandomQuote.bind(this)}>Change Quote</Button>
                         <Button variant="secondary" className="m-1" onClick={this.toggleLeetSpeak.bind(this)}>Leet Speak</Button>
+                    </ButtonToolbar>
+                    <ButtonToolbar>
+                        {this.searchFieldBottom()}
                     </ButtonToolbar>
                 </div>
 
