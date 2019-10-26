@@ -1,5 +1,14 @@
-.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited, .input-group-text {
 
-    background-color: var(--button-color) !important;
-    border-color: white !important;
+    background-color: var(--button-background-color) !important;
+    border-color:     var(--button-border-color)     !important;
+	color:        	  var(--button-text-color)       !important;
+	text-color:       var(--button-text-color)       !important;
+}
+
+.form-control, .form-control:focus {
+
+	background-color: var(--body-background-color);
+	text-color: var(--primary-foreground-color);
+	color: var(--primary-foreground-color);
 }
