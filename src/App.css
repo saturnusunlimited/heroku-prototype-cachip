@@ -33,13 +33,13 @@ div.App-banner {
 div.App-banner.App-header {
 
 	background-color: var(--header-background-color);
-	height: 10vh;
+	height: 15vh;
 }
 
 div.App-banner.App-body {
 
 	background-color: var(--body-background-color);
-	min-height: 65vh;
+	min-height: 60vh;
 }
 
 div.App-banner.App-share-banner {
