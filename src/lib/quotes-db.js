@@ -7,6 +7,7 @@ class QuotesDB {
     #json    = defaultQuotesDatabase;
     #list    = [];
 	#history = [];
+	#future  = [];
 
 	#currentSearchIndex = 0;
 	#currentSearch      = "";
@@ -18,6 +19,7 @@ class QuotesDB {
         this.#json    = json || this.#json;
         this.#list    = [];
 		this.#history = [];
+		this.#future  = [];
 
         this.init();
     }
@@ -76,8 +78,33 @@ class QuotesDB {
 		return null;
 	}
 
-	addToHistory () {
+	previousQuote () {
 
+		if (this.#history.length > 1) {
+
+			var quote = this.#history.pop();
+
+			this.#future.push( quote );
+
+			return quote;
+		}
+	
+		return this.#history[0];
+	}
+
+	// To be done
+	nextQuote () {
+
+		if (this.#future.length > 0) {
+
+			var quote = this.#future.pop();
+
+			this.#history.push( quote );
+
+			return quote;
+		}
+
+		return this.#history[this.#history.length - 1];
 	}
 }
 
