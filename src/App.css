@@ -25,7 +25,6 @@ div.App-banner {
 	align-items: center;
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
-
 	background-color: var(--primary-background-color);
 	color: white;
 }
@@ -62,10 +61,14 @@ div.App-banner.App-body.one-button-row {
 	height: 65vh;
 }
 
+/* The font-size is needed for obscure reasons. The icons will not center correctly
+ * in vertical direction otherwise. Maybe they are positioned as characters and the
+ * baseline is deduced in correctly or something like that.*/
 div.App-banner.App-share-banner {
 
 	background-color: var(--share-background-color);
-	height: 6vmax;
+	height: 50px;
+	font-size: 0px;
 }
 
 .App-right-align {

@@ -79,10 +79,15 @@ class App extends Component {
             quoteDatabase: quoteDatabase,
             quote:         quoteDatabase.randomQuote(),
             search:        "",
-            viewportWidth: window.visualViewport.width,
+            viewportWidth: this.pageWidth(),
         };
 
         window.addEventListener('resize', this.handleResize)
+    }
+
+    pageWidth () {
+
+        return (window.visualViewport == undefined) ? window.innerWidth : window.visualViewport.width;
     }
 
     newRandomQuote () {
@@ -138,7 +143,7 @@ class App extends Component {
 
     oneButtonRow () {
 
-        return (window.visualViewport.width > this.smallViewportWidth);
+        return (this.pageWidth() > this.smallViewportWidth);
     }
 
     searchFieldRight () {
@@ -158,8 +163,8 @@ class App extends Component {
 
     handleResize = () => {
 
-        let width     = this.state.viewportWidth
-        let newWidth  = window.visualViewport.width;
+        let width     = this.state.viewportWidth;
+        let newWidth  = this.pageWidth();
         let treshold  = this.smallViewportWidth;
         let rerender  = false;
 
@@ -239,7 +244,7 @@ class App extends Component {
 
                     <div className="App-footer-inner">
                         <div>
-                            Icons made by <a
+                            Double quote icons made by <a
                             className="App-link"
                             href="https://www.flaticon.com/authors/freepik"
                             target="_blank"
