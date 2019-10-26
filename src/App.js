@@ -4,7 +4,11 @@ import double_quotes from './assets/svg/double_quotes.svg';
 import './App.css';
 import './css/CustomBootstrap.css'
 import { Button, ButtonToolbar, InputGroup, FormControl } from 'react-bootstrap';
+import 'font-awesome/css/font-awesome.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import QuotesDB from './lib/quotes-db.js'
+
 
 import {
   FacebookShareButton,
@@ -90,16 +94,30 @@ class App extends Component {
         return (window.visualViewport == undefined) ? window.innerWidth : window.visualViewport.width;
     }
 
-    newRandomQuote () {
+    newRandomQuote = () => {
 
-        var newQuote = this.state.quoteDatabase.randomQuote();
-        
+        return this.replaceQuote( this.state.quoteDatabase.randomQuote() );
+    }
+
+    nextQuote = () => {
+
+        this.replaceQuote( this.state.quoteDatabase.nextQuote() );
+    }
+
+    previousQuote = () => {
+    
+        this.replaceQuote( this.state.quoteDatabase.previousQuote() );
+    }
+
+
+    replaceQuote ( newQuote ) {
+
         newQuote.setLeetSpeak( this.state.quote.getLeetSpeak() );
 
         this.setState( { quote: newQuote } );
     }
 
-    toggleLeetSpeak () {
+    toggleLeetSpeak = () => {
 
         this.state.quote.toggleLeetSpeak();
 
@@ -189,8 +207,14 @@ class App extends Component {
                 <div className={`App-banner App-header ${this.buttonRowClass()}`}>
                     <ButtonToolbar>
                         {this.searchFieldRight()}
-                        <Button variant="secondary" className="m-1" onClick={this.newRandomQuote.bind(this)}>Change Quote</Button>
-                        <Button variant="secondary" className="m-1" onClick={this.toggleLeetSpeak.bind(this)}>Leet Speak</Button>
+                        <Button variant="secondary" className="m-1" onClick={this.previousQuote}>
+                            <FontAwesomeIcon icon={faAngleLeft} />
+                        </Button>
+                        <Button variant="secondary" className="m-1" onClick={this.newRandomQuote}>Change Quote</Button>
+                        <Button variant="secondary" className="m-1" onClick={this.toggleLeetSpeak}>Leet Speak</Button>
+                        <Button variant="secondary" className="m-1" onClick={this.nextQuote}>
+                            <FontAwesomeIcon icon={faAngleRight} />
+                        </Button>
                     </ButtonToolbar>
                     <ButtonToolbar>
                         {this.searchFieldBottom()}
