@@ -136,14 +136,24 @@ class App extends Component {
                 </InputGroup>
     }
 
+    oneButtonRow () {
+
+        return (window.visualViewport.width > this.smallViewportWidth);
+    }
+
     searchFieldRight () {
 
-        return (window.visualViewport.width > this.smallViewportWidth) ?  this.searchField("m-1 App-right-align") : "";
+        return (this.oneButtonRow()) ?  this.searchField("m-1 App-right-align") : "";
     }
 
     searchFieldBottom () {
 
-        return (window.visualViewport.width <= this.smallViewportWidth) ?  this.searchField("m-1") : "";
+        return (!this.oneButtonRow()) ?  this.searchField("m-1") : "";
+    }
+
+    buttonRowClass = () => {
+    
+        return (this.oneButtonRow()) ?  "one-button-row" : "two-button-rows";
     }
 
     handleResize = () => {
@@ -171,7 +181,7 @@ class App extends Component {
             <div className="App">
 
 
-                <div className="App-banner App-header">
+                <div className={`App-banner App-header ${this.buttonRowClass()}`}>
                     <ButtonToolbar>
                         {this.searchFieldRight()}
                         <Button variant="secondary" className="m-1" onClick={this.newRandomQuote.bind(this)}>Change Quote</Button>
