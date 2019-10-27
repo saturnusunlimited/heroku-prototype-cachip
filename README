@@ -38,6 +38,8 @@ COMMANDS
             https://prototype-heroku-caschip.herokuapp.com/
      GIT
 
+        $ git init
+        $ git branch development
         $ git checkout development
 
             Do stuff
@@ -47,6 +49,7 @@ COMMANDS
         $ git checkout master
         $ git merge development
         $ git push heroku master # This will deploy on heroku, and takes some time.
+        $ git push
 
 FILES
 
