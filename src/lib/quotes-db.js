@@ -55,7 +55,7 @@ class QuotesDB {
 
 		const quote = this.#list[index];
 
-		this.#history.push ( quote );
+		this.#history.push( quote );
 
         return quote;
     }
@@ -103,6 +103,8 @@ class QuotesDB {
 			return quote;
 		}
 	
+        console.log("No previous quote");
+
 		return (this.#history.length == 0) ? null : this.#history[0];
 	}
 
@@ -117,10 +119,14 @@ class QuotesDB {
 			return quote;
 		}
 
+        console.log("No next quote");
+
 		return (this.#history.length == 0) ? null : this.#history[this.#history.length - 1];
 	}
 
 	clearHistory () {
+
+        console.log("Clearing history");
 
 		this.#history = [];
 		this.#future  = [];

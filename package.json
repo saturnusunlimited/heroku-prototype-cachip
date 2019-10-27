@@ -13,6 +13,7 @@
     "react": "^16.10.2",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.10.2",
+    "react-js-snackbar": "^1.0.4",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-share": "^3.0.1"
@@ -24,7 +25,13 @@
     "eject": "react-scripts eject"
   },
   "jest": {
-    "coverageReporters": ["json", "lcov", "text", "clover", "html"]
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "html"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"

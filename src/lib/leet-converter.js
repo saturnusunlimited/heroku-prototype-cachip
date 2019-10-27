@@ -70,9 +70,6 @@ const convertInput = (text, useAdvanced = 'n') => {
     }
   }
 
-  // Show the result in console
-  console.log(text)
-
   return text
 }
 
