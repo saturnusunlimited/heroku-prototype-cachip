@@ -1,4 +1,3 @@
-// This is not really a test, but a template to generate tests from
 import QuotesDB from '../lib/quotes-db.js';
 import AppQuote from '../lib/app-quote.js';
 

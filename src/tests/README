@@ -17,6 +17,5 @@ DEPENDENCIES
 FILES
 
 	README            # This file.
-	template.js       # Pascal source, ASCII text
-	template.spec.js  # Pascal source, ASCII text
-
+	app-quote.spec.js # Java source, ASCII text
+	quotes-db.spec.js # Java source, ASCII text

@@ -2,15 +2,17 @@ const { convertInput, convertInputReverse } = require('./leet-converter');
 
 class AppQuote {
 
-	#text      = "";
-	#author    = "Anonymous";
-	#leetSpeak = false;
+	#text           = "";
+	#author         = "Anonymous";
+	#leetSpeak      = false;
+	#leetSpeakText  = "";
 
     constructor( parameters ) {
 
-        this.#text      = parameters.quoteText   || this.#text;
-        this.#author    = parameters.quoteAuthor || this.#author;
-		this.#leetSpeak = parameters.leetSpeak   || this.#leetSpeak;
+        this.#text          = parameters.quoteText   || this.#text;
+        this.#author        = parameters.quoteAuthor || this.#author;
+		this.#leetSpeak     = parameters.leetSpeak   || this.#leetSpeak;
+		this.#leetSpeakText = parameters.leetText    || convertInput(this.#text,'N');
 	}
 
 	author () {
@@ -20,18 +22,13 @@ class AppQuote {
 
 	text () {
 
-		return this.#leetSpeak ? this.leetSpeak() : this.#text;
+		return this.#leetSpeak ? this.#leetSpeakText : this.#text;
 	}
 
 
-	leetSpeak () {
+	leetSpeakText () {
 
-        return convertInput(this.#text,'N');
-	}
-
-	toggleLeetSpeak () {
-		
-		this.#leetSpeak = !this.#leetSpeak;
+        return this.#leetSpeakText;
 	}
 
 	setLeetSpeak ( value ) {
@@ -42,6 +39,11 @@ class AppQuote {
 	getLeetSpeak () {
 
 		return this.#leetSpeak;
+	}
+
+	toggleLeetSpeak () {
+		
+		this.setLeetSpeak( !this.#leetSpeak );
 	}
 }
 
