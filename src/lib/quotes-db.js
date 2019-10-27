@@ -26,11 +26,25 @@ class QuotesDB {
 
     init () {
 
+		var hash = {};
+
         for (var i=0; i<this.#json.length; i++) {
 
-            this.#list[i] = new AppQuote( this.#json[i] );
+			var quote = new AppQuote( this.#json[i] );
+			var text  = quote.text();
+
+			if ( hash[text] == undefined ) {
+
+				hash[text] = true;
+            	this.#list.push(quote);
+			}
         }
     }
+
+	all () {
+
+		return [...this.#list];
+	}
 
     size () {
 
@@ -89,10 +103,9 @@ class QuotesDB {
 			return quote;
 		}
 	
-		return this.#history[0];
+		return (this.#history.length == 0) ? null : this.#history[0];
 	}
 
-	// To be done
 	nextQuote () {
 
 		if (this.#future.length > 0) {
@@ -104,7 +117,13 @@ class QuotesDB {
 			return quote;
 		}
 
-		return this.#history[this.#history.length - 1];
+		return (this.#history.length == 0) ? null : this.#history[this.#history.length - 1];
+	}
+
+	clearHistory () {
+
+		this.#history = [];
+		this.#future  = [];
 	}
 }
 
