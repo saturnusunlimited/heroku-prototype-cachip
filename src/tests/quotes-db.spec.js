@@ -17,7 +17,7 @@ import AppQuote from '../lib/app-quote.js';
  *
  */
 
-var VERBOSE = true;
+var VERBOSE = false;
 
 function printQuotes ( list ) {
 
@@ -99,6 +99,15 @@ describe("quotes-db.js the quote database class", () => {
         expect(unique.length).toEqual(texts.length);
     });
 
+    test("current quote should be available", () => {
+
+        var quoteDatabase = new QuotesDB();
+
+		quoteDatabase.randomQuote();
+
+		expect(quoteDatabase.current()).toBeInstanceOf(AppQuote);
+    });
+
     test("previous quote should be retrievable", () => {
 
         var quoteDatabase = new QuotesDB();
@@ -130,7 +139,9 @@ describe("quotes-db.js the quote database class", () => {
 
         for (var i=0; i<sampleSize; i++) { quoteDatabase.previousQuote(); }
 
-        for (var i=0; i<sampleSize; i++) {
+        expect(quoteDatabase.current()).toBe(list[0]);
+
+        for (var i=1; i<sampleSize; i++) {
 
             var nextQuote = quoteDatabase.nextQuote()
 
@@ -150,6 +161,8 @@ describe("quotes-db.js the quote database class", () => {
         var searchResult  = quoteDatabase.search( searchText );
 
         expect(searchResult).toBeInstanceOf(AppQuote);
+
+		expect(quoteDatabase.search('d41cdb66-f8de-11e9-8894-abc457b3785c')).toBeNull();
     });
 
     test("database history should be clearable", () => {

@@ -92,6 +92,11 @@ class QuotesDB {
 		return null;
 	}
 
+    current () {
+    
+		return (this.#history.length == 0) ? null : this.#history[this.#history.length - 1];
+    }
+
 	previousQuote () {
 
 		if (this.#history.length > 1) {
@@ -100,12 +105,12 @@ class QuotesDB {
 
 			this.#future.push( quote );
 
-			return quote;
-		}
-	
-        console.log("No previous quote");
+		} else {
 
-		return (this.#history.length == 0) ? null : this.#history[0];
+            console.log("No previous quote");
+        }
+	
+		return this.current();
 	}
 
 	nextQuote () {
@@ -116,12 +121,12 @@ class QuotesDB {
 
 			this.#history.push( quote );
 
-			return quote;
-		}
+		} else {
 
-        console.log("No next quote");
+            console.log("No next quote");
+        }
 
-		return (this.#history.length == 0) ? null : this.#history[this.#history.length - 1];
+		return this.current();
 	}
 
 	clearHistory () {
