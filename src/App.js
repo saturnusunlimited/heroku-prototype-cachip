@@ -7,7 +7,7 @@ import { Button, ButtonToolbar, InputGroup, FormControl } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import QuotesDB from './lib/quotes-db.js'
-
+import ReactSnackBar from "react-js-snackbar";
 
 import {
   FacebookShareButton,
@@ -79,14 +79,30 @@ class App extends Component {
 
         this.state = {
 
-            quoteDatabase: quoteDatabase,
-            quote:         quoteDatabase.randomQuote(),
-            search:        "",
-            viewportWidth: this.pageWidth(),
+            quoteDatabase:   quoteDatabase,
+            quote:           quoteDatabase.randomQuote(),
+            search:          "",
+            viewportWidth:   this.pageWidth(),
+            showingSnackbar: false,
+            snowSnackbar:    true,
+            snackbarMessage: "",
         };
 
         window.addEventListener('resize', this.handleResize)
     }
+
+    showSnackbar = () => {
+
+        if (this.state.showingSnackbar) return;
+
+        this.setState({ showSnackbar: true, showingSnackbar: true });
+
+        setTimeout(() => {
+
+            this.setState({ showSnackbar: false, showingSnackbar: false });
+
+        }, 2000);
+    };
 
     pageWidth () {
 
@@ -100,14 +116,32 @@ class App extends Component {
 
     nextQuote = () => {
 
-        this.replaceQuote( this.state.quoteDatabase.nextQuote() );
+        var quote = this.state.quoteDatabase.nextQuote();
+        var msg   = "There is no next quote."; // This string should not be inlined.
+
+        this.setNextOrPreviousQuote( quote, msg );
     }
 
     previousQuote = () => {
     
-        this.replaceQuote( this.state.quoteDatabase.previousQuote() );
+        var quote = this.state.quoteDatabase.previousQuote();
+        var msg   = "There is no previous quote."; // This string should not be inlined.
+
+        this.setNextOrPreviousQuote( quote, msg );
     }
 
+    setNextOrPreviousQuote ( quote, isTheSameMessage ) {
+
+        if (quote != null && quote !== this.state.quote) {
+
+            this.replaceQuote( quote );
+
+        } else {
+
+            this.state.snackbarMessage = isTheSameMessage;
+            this.showSnackbar();
+        }
+    }
 
     replaceQuote ( newQuote ) {
 
@@ -202,8 +236,12 @@ class App extends Component {
 
             <div className="App">
 
-
                 <div className={`App-banner App-header ${this.buttonRowClass()}`}>
+
+                    <ReactSnackBar Icon={<span>i</span>} Show={this.state.showSnackbar}>
+                        {this.state.snackbarMessage}
+                    </ReactSnackBar>
+
                     <ButtonToolbar>
                         {this.searchFieldRight()}
                         <Button variant="secondary" className="m-1" onClick={this.previousQuote}>
