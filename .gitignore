@@ -25,3 +25,4 @@ yarn-error.log*
 **/.local_history
 .idea
 .next_directory
+src/server.js
