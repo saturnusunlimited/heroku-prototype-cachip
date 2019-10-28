@@ -38,7 +38,7 @@ function testTell ( msg ) {
     console.log(msg);
 }
 
-describe("quotes-db.js the quote database class", () => {
+describe("quotes-db.js class QuoteDB, database", () => {
 
     test("database should contain quotes", () => {
 

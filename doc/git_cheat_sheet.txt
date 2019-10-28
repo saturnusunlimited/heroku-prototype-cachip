@@ -34,3 +34,4 @@ COMMANDS
     git merge development
     git add --all
     git add -A
+    git push --set-upstream origin development # To push the current branch and set the remote as upstream
