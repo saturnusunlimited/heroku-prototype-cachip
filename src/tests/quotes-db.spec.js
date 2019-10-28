@@ -164,6 +164,13 @@ describe("quotes-db.js the quote database class", () => {
 		expect(quoteDatabase.search('d41cdb66-f8de-11e9-8894-abc457b3785c')).toBeNull();
     });
 
+    test("when I search the database the result should be added to the history", () => {
+
+        var implemented = false;
+
+        expect(implemented).toEqual(true);
+    });
+
     test("database history should be clearable", () => {
 
         var quoteDatabase = new QuotesDB();
