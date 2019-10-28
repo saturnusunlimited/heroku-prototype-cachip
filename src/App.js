@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import QuotesDB from './lib/quotes-db.js'
 import ReactSnackBar from "react-js-snackbar";
+import PropTypes from "prop-types";
 
 import {
   FacebookShareButton,
@@ -52,11 +53,13 @@ import {
 } from 'react-share';
 
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+
+import { withRouter } from "react-router";
 
 /*
 <Router>
@@ -68,10 +71,11 @@ import {
 
 class App extends Component {
 
-
     constructor (props) {
 
         super(props);
+
+        console.log(props);
 
         const quoteDatabase = new QuotesDB();
 
@@ -86,6 +90,7 @@ class App extends Component {
             showingSnackbar: false,
             snowSnackbar:    true,
             snackbarMessage: "",
+            basename:        process.env.PUBLIC_URL,
         };
 
         window.addEventListener('resize', this.handleResize)
@@ -207,6 +212,21 @@ class App extends Component {
         return (!this.oneButtonRow()) ?  this.searchField("m-1") : "";
     }
 
+    quoteShareUrlDiv () {
+
+        if (this.pageWidth() > this.smallViewportWidth) {
+
+            return <div className="m-1 App-quote-url App-left-align">
+                        <div className="App-link">
+                            {window.location.href}
+                        </div>
+                    </div>
+        } else {
+
+            return "";
+        }
+    }
+
     buttonRowClass = () => {
     
         return (this.oneButtonRow()) ?  "one-button-row" : "two-button-rows";
@@ -286,6 +306,7 @@ class App extends Component {
 
                     <ButtonToolbar>
 
+                        {this.quoteShareUrlDiv()}
                         <TwitterShareButton className="m-1" url={this.shareUrl()}>
                             <TwitterIcon size={32} round={true} />
                         </TwitterShareButton>
@@ -352,4 +373,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withRouter(App);

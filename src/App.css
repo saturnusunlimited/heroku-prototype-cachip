@@ -43,6 +43,12 @@ div.App-banner.App-header.two-button-rows {
 	height: 15vh;
 }
 
+div.green {
+
+    color: green;
+    background-color: red;
+}
+
 div.App-banner.App-header.one-button-row {
 
 	height: 10vh;
@@ -78,6 +84,22 @@ div.App-banner.App-share-banner {
 
 	position: absolute;
 	right: 10vh;
+}
+
+.App-left-align {
+
+	position: absolute;
+	left: 10vh;
+}
+
+div.App-quote-url {
+
+    display: flex;
+    width:  20vw;
+    height: 32px;
+    font-size: 17px;
+	align-items: center;
+	justify-content: center;
 }
 
 div.App-banner.App-footer {
