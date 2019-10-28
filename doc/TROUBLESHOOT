@@ -162,6 +162,10 @@ PROBLEM 1
         $ vim src/tests/app-quote.spec.js
         $ vim src/tests/quotes-db.spec.js
 
+        $ git add --all
+        $ git commit -a -m "Fixed merge problem"
+        $ git push
+
 
 FILES
 
