@@ -166,6 +166,19 @@ PROBLEM 1
         $ git commit -a -m "Fixed merge problem"
         $ git push
 
+    PROBLEM cannot reload http://localhost:3000/
+
+        Cannot reload and/or breakpoints are not working.
+
+    SOLUTION
+
+        You reloaded when you where paused at a breakpoint in the debugger
+        of the google-chrome dev tools.
+
+        1. Kill the local server that you started with yarn start.
+        2. Close the tab where you opened http://localhost:3000/
+        3. Restart the local server ($ yarn start)
+        2. Open a new tab in Google-chrome and browse to http://localhost:3000/
 
 FILES
 
