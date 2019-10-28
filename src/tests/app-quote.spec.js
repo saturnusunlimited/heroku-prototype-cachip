@@ -36,7 +36,7 @@ function testQuote () {
     return new AppQuote( parameters );
 }
 
-describe("app-quote.js the quote class", () => {
+describe("app-quote.js class AppQuote, quote", () => {
 
     test("quote should have a text", () => {
 
