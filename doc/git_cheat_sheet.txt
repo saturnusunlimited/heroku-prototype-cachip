@@ -35,3 +35,7 @@ COMMANDS
     git add --all
     git add -A
     git push --set-upstream origin development # To push the current branch and set the remote as upstream
+
+    # To completely remove a file with sensitive data from all branches.
+    # NOTE: use the path, not just the filename
+    git filter-branch --force --index-filter   "git rm --cached --ignore-unmatch src/contains_sensitive_data.js" --prune-empty --tag-name-filter cat -- --all 
