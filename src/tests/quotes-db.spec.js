@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// This is not really a test, but a template to generate tests from
+>>>>>>> 43c6c585d427eb7eb99903fefe6cf6794f39b6cb
 import QuotesDB from '../lib/quotes-db.js';
 import AppQuote from '../lib/app-quote.js';
 
@@ -164,6 +168,7 @@ describe("quotes-db.js class QuoteDB, database", () => {
 		expect(quoteDatabase.search('d41cdb66-f8de-11e9-8894-abc457b3785c')).toBeNull();
     });
 
+<<<<<<< HEAD
     test("when I search the database the result should be added to the history", () => {
 
         var implemented = false;
@@ -171,6 +176,8 @@ describe("quotes-db.js class QuoteDB, database", () => {
         expect(implemented).toEqual(true);
     });
 
+=======
+>>>>>>> 43c6c585d427eb7eb99903fefe6cf6794f39b6cb
     test("database history should be clearable", () => {
 
         var quoteDatabase = new QuotesDB();
