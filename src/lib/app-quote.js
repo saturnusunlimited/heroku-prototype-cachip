@@ -2,10 +2,11 @@ const { convertInput, convertInputReverse } = require('./leet-converter');
 
 class AppQuote {
 
-	#text           = "";
-	#author         = "Anonymous";
-	#leetSpeak      = false;
-	#leetSpeakText  = "";
+	#text          = "";
+	#author        = "Anonymous";
+	#leetSpeak     = false;
+	#leetSpeakText = "";
+    #searchResults = null;
 
     constructor( parameters ) {
 
@@ -34,6 +35,7 @@ class AppQuote {
 	setLeetSpeak ( value ) {
 
 		this.#leetSpeak = value;
+        this.resetSearch();
 	}
 
 	getLeetSpeak () {
@@ -45,6 +47,57 @@ class AppQuote {
 		
 		this.setLeetSpeak( !this.#leetSpeak );
 	}
+
+	partMatch ( part, value ) {
+
+        return ({ part: part, matches: value });
+    }
+
+    resetSearch () {
+
+        this.#searchResults = ({
+
+            text:   [ this.partMatch(this.text()   , false) ],
+            author: [ this.partMatch(this.author() , false) ]
+        });
+    }
+
+    search ( regexpString ) {
+
+        if ( this.nullOrUndefined( regexpString ) ) { this.resetSearch(); return; }
+
+        this.#searchResults = ({
+
+            text:   this.searchInString( this.text()   , regexpString ),
+            author: this.searchInString( this.author() , regexpString )
+        });
+    }
+
+    searchResults () {
+
+        if (this.#searchResults == null ) { this.resetSearch(); }
+
+        return this.#searchResults;
+    }
+
+    searchInString ( string, regexpString ) {
+            
+        var regexp      = new RegExp( regexpString, "i");
+        var splitRegexp = new RegExp( `(${regexpString})`, "i");
+        var split       = string.split( splitRegexp );
+
+        if ( split.join('').length != string.length ) { return [ this.partMatch(string,false)]; }
+            
+        return split.map( (part) => this.partMatch(part,part.match( regexp ) ? true : false) );
+    }
+
+    nullOrUndefined( value ) {
+
+        if (typeof value === 'undefined') { return true; }
+        if (typeof value == null) { return true; }
+
+        return false;
+    }
 }
 
 export default AppQuote;

@@ -121,16 +121,16 @@ class App extends Component {
 
     nextQuote = () => {
 
-        var quote = this.state.quoteDatabase.nextQuote();
-        var msg   = "There is no next quote."; // This string should not be inlined.
+        const quote = this.state.quoteDatabase.nextQuote();
+        const msg = "There is no next quote."; // This string should not be inlined.
 
         this.setNextOrPreviousQuote( quote, msg );
     }
 
     previousQuote = () => {
-    
-        var quote = this.state.quoteDatabase.previousQuote();
-        var msg   = "There is no previous quote."; // This string should not be inlined.
+
+        const quote = this.state.quoteDatabase.previousQuote();
+        const msg = "There is no previous quote."; // This string should not be inlined.
 
         this.setNextOrPreviousQuote( quote, msg );
     }
@@ -174,7 +174,7 @@ class App extends Component {
 
         if (keyEvent.key === 'Enter') {
 
-            var newQuote = this.state.quoteDatabase.search( quoteRegexp );
+            const newQuote = this.state.quoteDatabase.search( quoteRegexp );
 
             if (newQuote != null) {
 
@@ -236,15 +236,30 @@ class App extends Component {
 
         let width     = this.state.viewportWidth;
         let newWidth  = this.pageWidth();
-        let treshold  = this.smallViewportWidth;
+        let threshold = this.smallViewportWidth;
         let rerender  = false;
 
-        if (width >  treshold && newWidth <= treshold ) { rerender = true; }
-        if (width <= treshold && newWidth >  treshold ) { rerender = true; }
+        if (width >  threshold && newWidth <= threshold ) { rerender = true; }
+        if (width <= threshold && newWidth >  threshold ) { rerender = true; }
 
         this.state.viewportWidth = newWidth;
 
         if (rerender) { this.setState( { state: this.state } ) }
+    }
+
+    highlightedText = () => {
+
+        return this.highlightedQuoteSearchParts( this.state.quote.searchResults().text );
+    }
+
+    highlightedAuthor = () => {
+
+        return this.highlightedQuoteSearchParts( this.state.quote.searchResults().author);
+    }
+
+    highlightedQuoteSearchParts ( parts ) {
+
+        return parts.map( (item,index) => <span key={index}>{item.matches ? <mark>{item.part}</mark> : item.part}</span>);
     }
 
     // DEVELOPER NOTE: The return App template should probably be in a separate
@@ -278,7 +293,7 @@ class App extends Component {
                     </ButtonToolbar>
                 </div>
 
-                <div className="App-banner App-body">
+                <div className={`App-banner App-body ${this.buttonRowClass()}`}>
 
                     <div className="App-quote">
 
@@ -287,7 +302,7 @@ class App extends Component {
                         </div>
 
                         <div>
-                            <p className="App-quote-text">{this.state.quote.text()} </p>
+                            <p className="App-quote-text">{this.highlightedText()} </p>
                         </div>
 
                         <div className="quotes" >
@@ -298,7 +313,7 @@ class App extends Component {
 
                     <div className="App-quote">
 
-                        <p className="App-quote-author">{this.state.quote.author()}</p>
+                        <p className="App-quote-author">{this.highlightedAuthor()}</p>
                     </div>
                 </div>
 

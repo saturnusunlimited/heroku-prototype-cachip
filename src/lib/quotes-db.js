@@ -26,7 +26,7 @@ class QuotesDB {
 
     init () {
 
-		var hash = {};
+		const hash = {};
 
         for (var i=0; i<this.#json.length; i++) {
 
@@ -85,6 +85,7 @@ class QuotesDB {
 			if (quote.text().match(regexp) || quote.author().match(regexp)) {
 
                 this.#currentSearchIndex = index;
+                quote.search(regexpString); // this is a side effect. Bad practice! For now this hack will do.
 				return quote;
 			}
 		}

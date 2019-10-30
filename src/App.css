@@ -11,6 +11,25 @@
   --body-background-color:    #282c34;
   --share-background-color:   black;
   --footer-background-color:  #181c24;
+  --share-banner-height:      50px;
+}
+
+div.debug {
+
+    color: green;
+    background-color: red;
+}
+
+.App-right-align {
+
+	position: absolute;
+	right: 10vh;
+}
+
+.App-left-align {
+
+	position: absolute;
+	left: 10vh;
 }
 
 .App {
@@ -43,12 +62,6 @@ div.App-banner.App-header.two-button-rows {
 	height: 15vh;
 }
 
-div.green {
-
-    color: green;
-    background-color: red;
-}
-
 div.App-banner.App-header.one-button-row {
 
 	height: 10vh;
@@ -76,20 +89,8 @@ div.App-banner.App-body.one-button-row {
 div.App-banner.App-share-banner {
 
 	background-color: var(--share-background-color);
-	height: 50px;
+	height: var(--share-banner-height);
 	font-size: 0px;
-}
-
-.App-right-align {
-
-	position: absolute;
-	right: 10vh;
-}
-
-.App-left-align {
-
-	position: absolute;
-	left: 10vh;
 }
 
 div.App-quote-url {
@@ -105,7 +106,7 @@ div.App-quote-url {
 div.App-banner.App-footer {
 
 	background-color: var(--footer-background-color);
-	height: 20vh;
+	height: calc(25vh - var(--share-banner-height));
 	font-size: 1.5vh;
 }
 

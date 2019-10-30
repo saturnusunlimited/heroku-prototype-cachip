@@ -14,7 +14,7 @@ import AppQuote from '../lib/app-quote.js';
  */
 
 const VERBOSE           = true;
-const TEST_QUOTE_TEXT   = "A good quote is joy for ever.";
+const TEST_QUOTE_TEXT   = "A good quote is a joy for ever.";
 const TEST_QUOTE_AUTHOR = "Aad Schippers";
 
 
@@ -48,6 +48,22 @@ describe("app-quote.js class AppQuote, quote", () => {
         expect(testQuote().author()).toEqual(TEST_QUOTE_AUTHOR);
     });
 
+    test("quote should be searchable for regexp", () => {
+
+        const quote = testQuote();
+        const regexpString = 'j.y';
+
+        quote.search( regexpString );
+
+        const results = quote.searchResults();
+
+        expect(results.text).toBeInstanceOf(Array);
+        expect(results.author).toBeInstanceOf(Array);
+
+        expect(results.text.map( (match) => match.matches )).toContain(true);
+        expect(results.author.map( (match) => match.matches )).not.toContain(true);
+    });
+
     test("quote should translate to leet speak ", () => {
 
         expect(testQuote().leetSpeakText().length).toBeGreaterThanOrEqual(TEST_QUOTE_TEXT.length);
@@ -56,9 +72,9 @@ describe("app-quote.js class AppQuote, quote", () => {
 
     test("quote's text can be set to leet speak and back", () => {
 
-        var quote     = testQuote();
-        var text      = quote.text();
-        var leetSpeak = quote.leetSpeakText();
+        const quote     = testQuote();
+        const text      = quote.text();
+        const leetSpeak = quote.leetSpeakText();
 
         expect(text).not.toEqual(leetSpeak);
 
